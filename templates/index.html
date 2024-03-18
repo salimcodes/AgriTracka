@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriTracka | Plant Growth Prediction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS code to style the webpage -->
+    <style>
+        .light{
+            color: #1C2321 !important;
+            background-color: #FFFFFF !important;
+            transition: .3s;
+        }
+        *{
+            box-sizing: border-box;
+            margin: 0;
+        }
+        body{
+            background-color: #1C2321;
+            color: #FFFFFF;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            padding: 1.5em 2em;
+            /* border: 1px dashed red; */
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        nav > header{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        nav > header > img{
+            width: 8em;
+            height: 6em;
+            object-fit: contain;
+        }
+        nav > header > h1{
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 2.3rem;
+        }
+        nav > header > p{
+            font-family: 'Poppins', sans-serif;
+            font-size: .8rem;
+        }
+        nav > ion-icon{
+            font-size: 1.5rem;
+        }
+        main{
+            padding: 0 2em;
+            font-family: 'Poppins', sans-serif;
+
+        }
+        main h1{
+            margin-bottom: 1em;
+            font-family: 'Chakra Petch', sans-serif;
+
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+        }
+        .form__row label{
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: .9rem;
+        }
+        .form__row{
+            display: flex;
+            flex-direction: column;
+            gap: .3em;
+        }
+        .form__row input{
+            padding: .5em;
+            outline-width: 0;
+            font-family: 'Poppins', sans-serif;
+            border: 1px solid #1C2321;
+        }
+        .form__row button{
+            font-family: 'Chakra Petch', sans-serif;
+            background: #3e8914;
+            color: #FFFFFF;
+            padding: .7em;
+            border: 1px solid #3e8914;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        @media(min-width: 800px){
+            main{
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+            form{
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            .form__row{
+                /* border: 1px solid red; */
+                flex: 1;
+                min-width: 15em;
+            }
+            .form__row.submit{
+                width: 100%;
+            }
+        }
+        footer p{
+            text-align: center;
+            font-size: .8rem;
+            font-family: 'Chakra Petch', sans-serif;
+            margin: 2em 0;
+            margin-top: 30vh;
+        }
+    </style>
+</head>
+<body id="body">
+    <nav>
+        <header>
+            <div class="header-container">
+                <!-- <h1>AgriTracka</h1>
+                <p>Predict your plant growth</p>-->
+            </div>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='image1.png') }}" alt="AgriTracka Logo" id="logo">
+            </div>
+        </header>        
+        <ion-icon name="sunny" id="themeSwitcher"></ion-icon>
+        <!-- <ion-icon name="moon"></ion-icon> -->
+    </nav>    
+    <main>
+        <h1>Input Data</h1>
+        <form method="post" action="{{ url_for('results') }}" class="form">
+            <div class="form__row">
+                <label for="light_intensity">Light Intensity in Lux</label>
+                <input type="number" name="light_intensity" step="any" placeholder="Light Intensity" required>
+            </div>
+            <div class="form__row">
+                <label for="temperature">Temperature in °C</label>
+                <input type="number" name="temperature" step="any" placeholder="Temperature" required>
+            </div>
+            <div class="form__row">
+                <label for="humidity">Humidity in %</label>
+                <input type="number" name="humidity" step="any" placeholder="Humidity" required>
+            </div>
+            <div class="form__row">
+                <button type="submit">Predict!</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>
+            &copy;2024 AgriTracka. 
+        </p>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        const themeSwitcher = document.getElementById("themeSwitcher");
+        const body = document.getElementById("body");
+        themeSwitcher.addEventListener("click", (e) => {
+            if (e.target.name == "sunny") {
+                e.target.name = "moon";
+                body.classList.add("light");
+                document.getElementById("logo").src = "{{ url_for('static', filename='image2.png') }}";
+            } else if (e.target.name == "moon") {
+                e.target.name = "sunny";
+                body.classList.remove("light");
+                document.getElementById("logo").src = "{{ url_for('static', filename='image1.png') }}";
+            }
+        });
+    </script>
+    </body>
+</html>

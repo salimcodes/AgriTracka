@@ -1,0 +1,6 @@
+flask
+pandas
+scikit-learn==1.2.2
+openai==0.28.1
+python-dotenv
+markdown2
