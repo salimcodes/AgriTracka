@@ -6,6 +6,7 @@
 #define DHTPIN 7                // Pin connected to the DHT sensor
 #define DHTTYPE DHT11           // Type of DHT sensor (DHT11 in this case)
 
+
 // Setting up pin numbers for LCD
 #define vin 5                   // Voltage input pin for the sensor
 

@@ -16,6 +16,20 @@ AgriTracka is a Flask web application designed to assist farmers in monitoring a
 - **Local Deployment**: Farmers can deploy AgriTracka locally, enabling them to access and utilize the application directly from their farm without relying on external servers.
 
 ---
+#### Images
+
+##### Dark Mode: 
+
+![Alt text](image-1.png)
+
+![Alt text](image-3.png)
+
+##### Light Mode: 
+
+![Alt text](image-2.png)
+
+![Alt text](image-4.png)
+---
 
 #### Technology Used
 - **Flask**: Python web framework for building the application.
@@ -89,8 +103,10 @@ The `Plant_Status_ML_Model.ipynb` file contains the Machine Learning/Data Analyt
 
 ---
 
+Try [here](https://agritracka.azurewebsites.net/)
+
 #### Author
-[The AgriTracka Team]()
+[The AgriTracka Team](https://drive.google.com/file/d/1wNPGGXfohR7Q4M426ggvJ1lRbXjCetz9/view?usp=sharing)
 
 #### License
 [MIT License](https://opensource.org/license/mit/)
