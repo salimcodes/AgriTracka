@@ -18,8 +18,6 @@ app = Flask(__name__, static_url_path='/static')
 model = load('plant_growth_model.joblib')
 
 
-
-
 # Load environment variables from .env file
 load_dotenv()
 
@@ -46,19 +44,6 @@ def remove_markdown(text):
     # Remove Markdown images
     text = re.sub(r'\!\[([^]]+)\]\([^)]+\)', r'\1', text)
     return text
-
-
-def remove_markdown(text):
-    # Remove Markdown headings and insert two newlines after each heading
-    text = re.sub(r'^(#+.*)$', r'\1\n\n', text, flags=re.MULTILINE)
-    # Remove Markdown syntax
-    text = re.sub(r'[*_`~]', '', text)
-    # Remove Markdown links
-    text = re.sub(r'\[([^]]+)\]\([^)]+\)', r'\1', text)
-    # Remove Markdown images
-    text = re.sub(r'\!\[([^]]+)\]\([^)]+\)', r'\1', text)
-    return text
-
 
 # Define a route for the index page (home page)
 @app.route('/', methods=['GET', 'POST'])
