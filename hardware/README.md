@@ -3,7 +3,6 @@
 
 ![Alt text](image-3.png)
 
-
 This is the hardware part of the solution!
 
 #### Description
