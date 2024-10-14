@@ -5,7 +5,6 @@
 #### Introduction
 AgriTracka is a Flask web application designed to assist farmers in monitoring and managing their crops' health. By integrating hardware sensors to capture environmental data and utilizing machine learning models for predictive analysis, AgriTracka offers personalized recommendations to optimize crop growth conditions. This README provides an overview of the technology used, setup instructions, key features, and how to work with the application locally.
 
-
 ---
 
 #### Key Features
