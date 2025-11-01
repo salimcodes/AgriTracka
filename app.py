@@ -9,6 +9,7 @@ import os
 import markdown2
 from dotenv import load_dotenv
 
+
 # Create a Flask web application
 #app = Flask(__name__)
 app = Flask(__name__, static_url_path='/static')
